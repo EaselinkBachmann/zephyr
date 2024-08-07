@@ -1326,6 +1326,7 @@ void bt_conn_set_state(struct bt_conn *conn, bt_conn_state_t state)
 			LOG_WRN("conn %p failed to establish. RF noise?", conn);
 		}
 
+		bt_conn_reset_rx_state(conn);
 		process_unack_tx(conn);
 		break;
 	default:
