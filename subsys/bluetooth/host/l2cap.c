@@ -256,6 +256,7 @@ void bt_l2cap_chan_del(struct bt_l2cap_chan *chan)
 	}
 
 	cancel_data_ready(le_chan);
+	le_chan->_pdu_remaining = 0;
 
 	/* Remove buffers on the PDU TX queue. We can't do that in
 	 * `l2cap_chan_destroy()` as it is not called for fixed channels.
